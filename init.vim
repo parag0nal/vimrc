@@ -11,9 +11,9 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'morhetz/gruvbox'
 Plug 'raimondi/delimitmate'
 Plug 'christoomey/vim-tmux-navigator'
-"Plug 'majutsushi/tagbar'
-"Plug 'airblade/vim-gitgutter'
-"Plug 'vim-airline/vim-airline'
+Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim'
 Plug 'mfukar/robotframework-vim'
 Plug 'haishanh/night-owl.vim'
@@ -22,6 +22,21 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'raphamorim/lucario'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
+
+" Aesthetics 
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'zaki/zazen'
+Plug 'nanotech/jellybeans.vim'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+
+" Fancy
+"Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+"Plug 'zchee/deoplete-jedi'
+
+Plug 'rhysd/vim-color-spring-night'
 call plug#end()
 
 set enc=utf-8
@@ -68,8 +83,7 @@ let g:solarized_termcolors=256
 
 syntax enable
 set background=dark
-colorscheme molokai
-"colorscheme lucario
+colorscheme jellybeans
 
 map <Leader>w <Plug>(easymotion-bd-w)
 
@@ -98,8 +112,13 @@ nnoremap <f7> :q<ENTER>
 nnoremap <f8> :wq<ENTER>
 nnoremap <f9> :make<ENTER>
 
-" Using GUI stuff
-if has("gui_running")
-    colorscheme molokai
-    "colorscheme lucario
-endif
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
+let g:airline_section_warning = ''
+
+let g:deoplete#enable_at_startup = 1
+set completeopt-=preview
+
+" Nvim Specific
+"
